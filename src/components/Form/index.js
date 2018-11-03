@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import uuidv1 from 'uuid'
 import { addArticle } from '../../actions/index'
+import styles from './styles.module.css'
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -44,7 +45,7 @@ class ConnectedForm extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <button type='submit' className='btn btn-success btn-lg'>
+        <button className={styles.buttonForm} type='submit'>
           SAVE
         </button>
       </form>
