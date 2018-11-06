@@ -2,14 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import uuidv1 from 'uuid'
+
 import { addArticle } from '../../actions/index'
 import styles from './styles.module.css'
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addArticle: article => dispatch(addArticle(article))
-  }
-}
 
 class ConnectedForm extends Component {
   constructor() {
@@ -55,6 +50,12 @@ class ConnectedForm extends Component {
 
 ConnectedForm.propTypes = {
   addArticle: PropTypes.func,
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addArticle: article => dispatch(addArticle(article))
+  }
 }
 
 const Form = connect(null, mapDispatchToProps)(ConnectedForm)
