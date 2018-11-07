@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import styles from './styles.module.css'
 
 const HomePage = () => (
@@ -9,4 +8,4 @@ const HomePage = () => (
   </div>
 )
 
-export default connect()(HomePage)
+export default HomePage

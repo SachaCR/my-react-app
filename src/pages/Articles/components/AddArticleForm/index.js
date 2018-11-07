@@ -20,10 +20,13 @@ class AddArticleForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const { title } = this.state
-    const id = uuidv1()
-    this.props.addArticle({ title, id })
-    this.setState({ title: '' })
+
+    if (this.state.title !== '') {
+      const { title } = this.state
+      const id = uuidv1()
+      this.props.addArticle({ title, id })
+      this.setState({ title: '' })
+    }
   }
 
   render() {
@@ -32,12 +35,7 @@ class AddArticleForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <div>
           <label>Title</label>
-          <input
-            type='text'
-            id='title'
-            value={title}
-            onChange={this.handleChange}
-          />
+          <input type='text' id='title' value={title} onChange={this.handleChange} />
         </div>
         <button className={styles.buttonForm} type='submit'>
           SAVE

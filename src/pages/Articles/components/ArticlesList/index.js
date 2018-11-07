@@ -13,12 +13,6 @@ class ArticlesList extends Component{
 
   componentWillMount() { this.props.getArticles() }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.articles !== nextProps.articles) {
-      this.setState({ articles: nextProps.articles })
-    }
-  }
-
   render() {
     return  (
       <ul>
