@@ -1,28 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import List from '../../components/List'
-import Form from '../../components/Form'
+import ArticlesList from './components/ArticlesList'
+import AddArticleForm from './components/AddArticleForm'
 import styles from './styles.module.css'
 
-
-class ConnectedArticles extends Component {
+class ArticlesPage extends Component {
   render() {
     return (
       <div className='row mt-5'>
         <div className='col-md-4 offset-md-1'>
           <h2 className={styles.title} >Articles</h2>
-          <List />
+          <ArticlesList />
         </div>
         <div className="col-md-4 offset-md-1">
           <h2 className={styles.title} >Add a new article</h2>
-          <Form />
+          <AddArticleForm />
         </div>
       </div>
     )
   }
 }
 
-const Articles = connect()(ConnectedArticles)
-
-export default Articles
+export default connect()(ArticlesPage)

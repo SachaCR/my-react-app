@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-import Home from '../../pages/Home'
-import Articles from '../../pages/Articles'
+import HomePage from '../pages/Home'
+import ArticlesPage from '../pages/Articles'
 
 const AppRouter = () => (
   <Router>
@@ -18,8 +18,8 @@ const AppRouter = () => (
         </ul>
       </nav>
 
-      <Route path='/' exact component={Home} />
-      <Route path='/articles' component={Articles} />
+      <Route path='/' exact component={HomePage} />
+      <Route path='/articles' component={ArticlesPage} />
 
     </div>
   </Router>

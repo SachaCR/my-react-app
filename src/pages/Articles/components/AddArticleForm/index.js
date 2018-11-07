@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import uuidv1 from 'uuid'
 
-import { addArticle } from '../../actions/index'
+import { addArticle } from '../../../../actions'
 import styles from './styles.module.css'
 
-class ConnectedForm extends Component {
+class AddArticleForm extends Component {
   constructor() {
     super()
     this.state = {
@@ -30,11 +30,10 @@ class ConnectedForm extends Component {
     const { title } = this.state
     return (
       <form onSubmit={this.handleSubmit}>
-        <div className='form-group'>
-          <label htmlFor='title'>Title</label>
+        <div>
+          <label>Title</label>
           <input
             type='text'
-            className='form-control'
             id='title'
             value={title}
             onChange={this.handleChange}
@@ -48,7 +47,7 @@ class ConnectedForm extends Component {
   }
 }
 
-ConnectedForm.propTypes = {
+AddArticleForm.propTypes = {
   addArticle: PropTypes.func,
 }
 
@@ -58,6 +57,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const Form = connect(null, mapDispatchToProps)(ConnectedForm)
-
-export default Form
+export default  connect(null, mapDispatchToProps)(AddArticleForm)

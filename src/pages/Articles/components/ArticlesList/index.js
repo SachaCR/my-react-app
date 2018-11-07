@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { getArticles, getArticleById } from '../../actions/index'
+import { getArticles, getArticleById } from '../../../../actions'
 
-class ConnectedList extends Component{
+class ArticlesList extends Component{
 
   constructor() {
     super()
@@ -21,9 +21,9 @@ class ConnectedList extends Component{
 
   render() {
     return  (
-      <ul className='list-group list-group-flush'>
+      <ul>
         {this.props.articles.map(el => (
-          <li className='list-group-item' key={el.id}>
+          <li key={el.id}>
             {el.title}
           </li>
         ))}
@@ -32,7 +32,7 @@ class ConnectedList extends Component{
   }
 }
 
-ConnectedList.propTypes = {
+ArticlesList.propTypes = {
   articles: PropTypes.array,
   getArticles: PropTypes.func,
   getArticleById: PropTypes.func,
@@ -51,6 +51,4 @@ const mapStateToProps = state => {
   }
 }
 
-const List = connect(mapStateToProps, mapDispatchToProps)(ConnectedList)
-
-export default List
+export default connect(mapStateToProps, mapDispatchToProps)(ArticlesList)
